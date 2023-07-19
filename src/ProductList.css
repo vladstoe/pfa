@@ -1,0 +1,38 @@
+/* ProductList.css */
+
+.product-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .categories-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .categories-list li {
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  
+  .categories-list li.active {
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .product-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 900px; /* Adjust this value as needed */
+    margin: 16px 0;
+  }
+  
+  /* Optional: Center the product cards horizontally */
+  .product-cards-container {
+    margin: 0 auto;
+  }
+  
