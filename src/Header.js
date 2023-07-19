@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Header = ({ onCategoryClick }) => {
   const [categories] = useState([
@@ -48,8 +49,8 @@ const Header = ({ onCategoryClick }) => {
       </nav>
       <div className="user-auth">
         {/* Show login, signup, or user profile links here based on authentication status */}
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Sign up</Link>
       </div>
     </header>
   );
