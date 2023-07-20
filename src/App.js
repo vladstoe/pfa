@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+// App.js
+
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import ProductCard from './ProductCard';
 import SearchBar from './SearchBar';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
-import { products } from './mockData';
-import { categories } from './mockData';
-
-
+import axios from 'axios'; // Import axios
 import './App.css';
 
 const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProducts, onSearchQueryChange }) => {
@@ -46,11 +45,32 @@ const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProdu
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch products from the server
+    axios.get('/api/products')
+      .then(response => {
+        setProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+
+    // Fetch categories from the server
+    axios.get('/api/categories')
+      .then(response => {
+        setCategories(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching categories:', error);
+      });
+  }, []);
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
   };
-
 
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.categoryId === selectedCategory)
@@ -69,14 +89,13 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Define the routes for different pages */}
         <Route
           path="/"
           element={<Home
             categories={categories}
             selectedCategory={selectedCategory}
             handleCategoryClick={handleCategoryClick}
-            filteredProducts={searchedProducts} // Use the searched products for rendering
+            filteredProducts={searchedProducts}
             onSearchQueryChange={handleSearchQueryChange}
           />}
         />
