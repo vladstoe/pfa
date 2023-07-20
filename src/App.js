@@ -5,16 +5,17 @@ import ProductCard from './ProductCard';
 import SearchBar from './SearchBar';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+import { products } from './mockData';
+import { categories } from './mockData';
+
 
 import './App.css';
 
-
-
-const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProducts }) => {
+const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProducts, onSearchQueryChange }) => {
   return (
     <div>
-      <Header onCategoryClick={handleCategoryClick} />
-      <SearchBar />
+      <Header categories={categories} onCategoryClick={handleCategoryClick} />
+      <SearchBar onSearchQueryChange={onSearchQueryChange} />
       {!selectedCategory ? (
         <div className='text'>
           <h1>Welcome to Our Homepage!</h1>
@@ -44,46 +45,47 @@ const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProdu
 
 const App = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategory(categoryId);
   };
 
-  const products = [
-    { id: 1, categoryId: 1, name: 'Product 1', price: 10.99, imageUrl: 'https://example.com/product1.jpg' },
-    { id: 2, categoryId: 1, name: 'Product 2', price: 12.99, imageUrl: 'https://example.com/product2.jpg' },
-    { id: 3, categoryId: 2, name: 'Product 3', price: 8.99, imageUrl: 'https://example.com/product3.jpg' },
-    { id: 4, categoryId: 3, name: 'Product 4', price: 13.99, imageUrl: 'https://example.com/product4.jpg' },
-    // Add more products as needed
-  ];
-
-  const categories = [
-    { id: 1, name: 'Category 1' },
-    { id: 2, name: 'Category 2' },
-    { id: 3, name: 'Category 3' },
-    // Add more categories as needed
-  ];
 
   const filteredProducts = selectedCategory
     ? products.filter((product) => product.categoryId === selectedCategory)
-    : [];
+    : products;
 
-    return (
-      <Router>
-        <Routes>
-          {/* Define the routes for different pages */}
-          <Route path="/" element={<Home
+  const handleSearchQueryChange = (query) => {
+    setSearchQuery(query);
+  };
+
+  const searchedProducts = searchQuery
+    ? filteredProducts.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    : filteredProducts;
+
+  return (
+    <Router>
+      <Routes>
+        {/* Define the routes for different pages */}
+        <Route
+          path="/"
+          element={<Home
             categories={categories}
             selectedCategory={selectedCategory}
             handleCategoryClick={handleCategoryClick}
-            filteredProducts={filteredProducts}
-          />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          {/* Add other routes as needed */}
-        </Routes>
-      </Router>
-    );
-  };
+            filteredProducts={searchedProducts} // Use the searched products for rendering
+            onSearchQueryChange={handleSearchQueryChange}
+          />}
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        {/* Add other routes as needed */}
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

@@ -1,21 +1,26 @@
 /* App.css */
 
+/* ... (existing styles) */
+
 .product-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 900px; /* Adjust this value as needed */
+  justify-content: center;
+  max-width: 1200px;
+  /* Adjust this value as needed */
   margin: 16px auto;
 }
 
-/* Optional: Center the product cards horizontally */
-.product-list {
-  margin: 0 auto;
+.product-card {
+  flex: 0 0 calc(25% - 20px);
+  /* Each card takes 25% width with 20px margin on each side */
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* App.css */
-
-/* ... (existing styles) */
 
 .categories-container {
   display: flex;
@@ -37,7 +42,7 @@
   background-color: #e0e0e0;
 }
 
-.text{
+.text {
   text-align: center;
 }
 

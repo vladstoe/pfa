@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
-const Header = ({ onCategoryClick }) => {
-  const [categories] = useState([
-    { id: 1, name: 'Category 1' },
-    { id: 2, name: 'Category 2' },
-    { id: 3, name: 'Category 3' },
-    // Add more categories as needed
-  ]);
+const Header = ({ onCategoryClick, categories }) => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleCategoryClick = (categoryId) => {
+    setSelectedCategory(categoryId);
     onCategoryClick(categoryId);
   };
 
@@ -34,7 +30,7 @@ const Header = ({ onCategoryClick }) => {
               {categories.map((category) => (
                 <li
                   key={category.id}
-                  className="dropdown-item"
+                  className={`dropdown-item ${selectedCategory === category.id ? 'active' : ''}`}
                   onClick={() => handleCategoryClick(category.id)}
                 >
                   {category.name}

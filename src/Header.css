@@ -4,111 +4,121 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #333; /* Choose your desired background color */
+    background-color: #333;
+    /* Choose your desired background color */
     padding: 10px;
     color: white;
-  }
-  
-  .logo {
-    display: inline-flex; /* Set display to inline-flex */
-    align-items: center; /* To center the image vertically if needed */
-  }
-  
-  .logo img {
-    height: 30px; /* Set the height of the logo image */
-    width: auto; /* Let the width adjust proportionally */
-    margin-right: 10px; /* Optional margin between the image and text */
-  }
-  
-  .nav-bar {
+}
+
+.logo {
+    display: inline-flex;
+    /* Set display to inline-flex */
+    align-items: center;
+    /* To center the image vertically if needed */
+}
+
+.logo img {
+    height: 30px;
+    /* Set the height of the logo image */
+    width: auto;
+    /* Let the width adjust proportionally */
+    margin-right: 10px;
+    /* Optional margin between the image and text */
+}
+
+.nav-bar {
     display: flex;
-  }
-  
-  .nav-list {
+}
+
+.nav-list {
     list-style: none;
     display: flex;
     padding: 0;
     margin: 0;
-  }
-  
-  .nav-item {
+}
+
+.nav-item {
     margin-right: 20px;
-  }
-  
-  .nav-item:last-child {
+}
+
+.nav-item:last-child {
     margin-right: 0;
-  }
-  
-  .nav-item a {
+}
+
+.nav-item a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
-  }
-  
-  .nav-item a:hover {
-    background-color: #555; /* Choose a color for the hover effect */
-  }
-  
-  /* New styles for login and signup links */
-  .user-auth {
+}
+
+.nav-item a:hover {
+    background-color: #555;
+    /* Choose a color for the hover effect */
+}
+
+/* New styles for login and signup links */
+.user-auth {
     display: flex;
-  }
-  
-  .user-auth a {
+}
+
+.user-auth a {
     color: white;
     text-decoration: none;
     padding: 8px 12px;
     border-radius: 4px;
-  }
-  
-  .user-auth a:hover {
-    background-color: #555; /* Choose a color for the hover effect */
-  }
-  
-  .products-menu {
-    position: relative; /* This is necessary for positioning the dropdown */
-  }
-  
-  .categories-dropdown {
+}
+
+.user-auth a:hover {
+    background-color: #555;
+    /* Choose a color for the hover effect */
+}
+
+.products-menu {
+    position: relative;
+    /* This is necessary for positioning the dropdown */
+}
+
+.categories-dropdown {
     display: none;
     position: absolute;
-    top: calc(100% + 5px); /* Add padding to push it down */
+    top: calc(100% + 5px);
+    /* Add padding to push it down */
     left: 0;
     background-color: #333;
     padding: 10px;
     border-radius: 4px;
-  }
-  
-  .products-menu:hover .categories-dropdown {
+}
+
+.products-menu:hover .categories-dropdown {
     display: block;
-  }
-  
-  .categories-dropdown ul {
+}
+
+.categories-dropdown ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .categories-dropdown li {
+}
+
+.categories-dropdown li {
     margin-bottom: 5px;
-  }
-  
-  .categories-dropdown a {
+}
+
+.categories-dropdown a {
     color: white;
     text-decoration: none;
     display: block;
-  }
-  
-  .categories-dropdown a:hover {
-    text-decoration: underline;
-  }
-  
-  .nav-dropdown {
-    position: relative;
-  }
+}
 
-  .dropdown-menu {
+.categories-dropdown a:hover {
+    text-decoration: underline;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
@@ -118,19 +128,19 @@
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+}
 
-  .nav-item:hover .dropdown-menu {
+.nav-item:hover .dropdown-menu {
     display: block;
-  }
+}
 
-  .dropdown-item {
+.dropdown-item {
     padding: 8px 16px;
     color: #333;
     text-decoration: none;
     display: block;
-  }
-  
-  .dropdown-item:hover {
+}
+
+.dropdown-item:hover {
     background-color: #f0f0f0;
-  }
+}
