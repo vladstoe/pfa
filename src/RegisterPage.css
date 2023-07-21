@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('https://img.freepik.com/free-vector/realistic-style-technology-particle-background_23-2148426704.jpg');
+    background-image: url('https://wallpaperswide.com/download/abstract_graphic_design__gray-wallpaper-2048x1536.jpg');
     background-size: cover;
 
 
@@ -29,7 +29,7 @@
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
     animation: fadeIn 0.5s ease-in-out;
 
 }

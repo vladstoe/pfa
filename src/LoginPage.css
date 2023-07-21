@@ -15,14 +15,14 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('https://img.freepik.com/free-vector/realistic-style-technology-particle-background_23-2148426704.jpg');
+    background-image: url('https://wallpaperswide.com/download/abstract_graphic_design__gray-wallpaper-2048x1536.jpg');
     background-size: cover;
 }
 
 .login-form-container {
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
     border-radius: 8px;
     max-width: 400px;
     width: 90%;
