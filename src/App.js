@@ -17,8 +17,7 @@ const Home = ({ categories, selectedCategory, handleCategoryClick, filteredProdu
       <SearchBar onSearchQueryChange={onSearchQueryChange} />
       {!selectedCategory ? (
         <div className='text'>
-          <h1>Welcome to Our Homepage!</h1>
-          <p>Choose from the following categories:</p>
+          <h1>Choose from the following categories:</h1>
           <div className="categories-container">
             {categories.map((category) => (
               <div
